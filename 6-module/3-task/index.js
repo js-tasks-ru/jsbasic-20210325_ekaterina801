@@ -2,20 +2,20 @@ import createElement from '../../assets/lib/create-element.js';
 
 export default class Carousel {
   constructor(slides) {
-      this.elem = slides;
+    this.elem = slides;
   }
   get elem() {
-      return this._elem;
+    return this._elem;
   }
   set elem(value) {  
     if (!this._elem) {
-        this._elem = document.createElement('DIV');
-        this._elem.className = 'carousel';
-        this.innerElem = document.createElement('DIV');
-        this.innerElem.className = 'carousel__inner';
-        this.elem.addEventListener('click', event => {
-					this.onClick(event);
-				});
+      this._elem = document.createElement('DIV');
+      this._elem.className = 'carousel';
+      this.innerElem = document.createElement('DIV');
+      this.innerElem.className = 'carousel__inner';
+      this._elem.addEventListener('click', event => {
+        this.onClick(event);
+      });
     }
     this.template = '';
     this.templateBtn = `
@@ -35,7 +35,7 @@ export default class Carousel {
                   <span class="carousel__price">€${price.toFixed(2)}</span>
                   <div class="carousel__title">${name}</div>
                   <button type="button" class="carousel__button">
-                    <img src="/assets/images/images/icons/plus-icon.svg" alt="icon">
+                    <img src="/assets/images/icons/plus-icon.svg" alt="icon">
                   </button>
               </div>
           </div>
@@ -52,7 +52,7 @@ export default class Carousel {
     let countSlide = document.querySelectorAll('.carousel__slide').length -1;
     let carousel = document.querySelector('.carousel__inner');
     
-    if (event.target.classList.contains('carousel__arrow_right')) {
+    if (event.target.closest('.carousel__arrow_right')) {
 
       let currentTransform =  carousel.style.transform.slice(11, carousel.style.transform.length - 3) || 0;
   
@@ -66,7 +66,7 @@ export default class Carousel {
         left.style.display = 'flex';
       }
     } 
-    if (event.target.classList.contains('carousel__arrow_left')) {
+    if (event.target.closest('.carousel__arrow_left')) {
     
       let currentTransform =  carousel.style.transform.slice(11, carousel.style.transform.length - 3) || 0;
   
