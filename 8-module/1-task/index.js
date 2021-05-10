@@ -39,6 +39,7 @@ export default class CartIcon {
   }
 
   updatePosition() {
+    // ваш код ...
     let top = this.elem.offsetTop;
     let left = Math.min(document.querySelector('.container').clientWidth + document.body.querySelector('.container').offsetLeft + 20, document.documentElement.clientWidth - this.elem.offsetWidth - 10);
     
